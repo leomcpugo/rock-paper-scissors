@@ -1,1 +1,33 @@
-Rock paper scissors
+<h1>
+    Rock paper scissors
+</h1>
+
+<h2>
+    SCOREBOARD
+</h2>
+<div class="game-board">
+    <span>WON: {{masterResults.wonCount}}</span>
+    <span>LOST: {{masterResults.lostCount}}</span>
+    <span>DRAW: {{masterResults.drawCount}}</span>
+</div>
+
+<h2>
+    Choose your hand
+</h2>
+<div class="game-options">
+    <button (click)="playHand(HandType.ROCK)" mat-flat-button color="primary">
+        ROCK
+    </button>
+    <button (click)="playHand(HandType.PAPER)" mat-flat-button color="primary">
+        PAPER
+    </button>
+    <button (click)="playHand(HandType.SCISSORS)" mat-flat-button color="primary">
+        SCISSORS
+    </button>
+</div>
+
+<div *ngIf="handResult" class="hand-result">
+    <span>You played {{handResult.playerHand}}</span>
+    <span>Computader played {{handResult.pcHand}}</span>
+    <span>You {{handResult.handResult}}</span>
+</div>
