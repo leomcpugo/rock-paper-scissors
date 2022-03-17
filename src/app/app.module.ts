@@ -10,11 +10,18 @@ import { GameRefereeService } from './services/game-referee.service';
 
 // angular material
 import { MatButtonModule } from '@angular/material/button';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { PlayerHandComponent } from './components/player-hand/player-hand.component';
+import { ScoreboardComponent } from './components/scoreboard/scoreboard.component';
+import { HandResultComponent } from './components/hand-result/hand-result.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GameArenaPage,
+    PlayerHandComponent,
+    ScoreboardComponent,
+    HandResultComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,6 +29,7 @@ import { MatButtonModule } from '@angular/material/button';
     BrowserAnimationsModule,
     // angular material
     MatButtonModule,
+    MatProgressBarModule,
   ],
   providers: [
     GameRefereeService,

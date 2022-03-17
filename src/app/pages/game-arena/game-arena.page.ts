@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { GameResults } from "src/app/models/game-result.model";
 import { HandResultType } from "src/app/models/hand-result-type.enum";
 import { HandResult } from "src/app/models/hand-result.model";
 import { HandType } from "src/app/models/hand-type.enum";
@@ -16,39 +17,29 @@ export class GameArenaPage {
 
     HandType = HandType;
 
-    masterResults: MasterResults = {
+    gameResults: GameResults = {
         wonCount: 0,
         lostCount: 0,
         drawCount: 0,
     };
 
-    handResult: HandResult | null = null
+    handResult: HandResult | null = null;
 
-    async playHand(playerHand: HandType) {
-        this.handResult = null;
-
-        await new Promise(f => setTimeout(f, 100));
-
+    playHand(playerHand: HandType) {
         this.handResult = this.gameRefereeService.playHand(playerHand);
 
         switch (this.handResult.handResult) {
-            case HandResultType.WON: this.masterResults.wonCount++; break;
-            case HandResultType.LOST: this.masterResults.lostCount++; break;
-            case HandResultType.DRAW: this.masterResults.drawCount++; break;
+            case HandResultType.WON: this.gameResults.wonCount++; break;
+            case HandResultType.LOST: this.gameResults.lostCount++; break;
+            case HandResultType.DRAW: this.gameResults.drawCount++; break;
         }
     }
 
     resetMasterResults() {
-        this.masterResults = {
+        this.gameResults = {
             wonCount: 0,
             lostCount: 0,
             drawCount: 0,
         };
     }
-}
-
-interface MasterResults {
-    wonCount: number;
-    lostCount: number;
-    drawCount: number;
 }

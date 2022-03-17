@@ -1,0 +1,10 @@
+<h2>
+    SCOREBOARD
+</h2>
+<div class="scoreboard">
+    <span>WON: {{gameResults.wonCount}}</span>
+    <span>LOST: {{gameResults.lostCount}}</span>
+    <span>DRAW: {{gameResults.drawCount}}</span>
+</div>
+<mat-progress-bar mode="determinate" color="primary" [value]="progressBarValue()" defaultColor="red">
+</mat-progress-bar>

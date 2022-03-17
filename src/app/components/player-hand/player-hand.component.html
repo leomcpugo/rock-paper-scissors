@@ -1,0 +1,14 @@
+<h2>
+    Choose your hand
+</h2>
+<div class="game-options">
+    <button (click)="onHandPlayed.emit(HandType.ROCK)" mat-flat-button color="primary">
+        ROCK
+    </button>
+    <button (click)="onHandPlayed.emit(HandType.PAPER)" mat-flat-button color="primary">
+        PAPER
+    </button>
+    <button (click)="onHandPlayed.emit(HandType.SCISSORS)" mat-flat-button color="primary">
+        SCISSORS
+    </button>
+</div>
